@@ -7,10 +7,11 @@
 
 import Foundation
 
-struct PaymentMethod: Codable, Hashable, Identifiable {
-    var id: String
-    var name: String
-    var payment_type_id: String
-    var status: String
-    var thumbnail: String
+struct PaymentMethod: Codable, Equatable {
+    let id: String
+    let name: String
+    let payment_type_id: String
+    let status: String
+    let secure_thumbnail: String
+    let max_allowed_amount: Int
 }

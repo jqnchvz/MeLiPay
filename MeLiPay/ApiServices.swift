@@ -27,31 +27,17 @@ class ApiServices {
             } catch {
                 print("Invalid data")
             }
-            
-//            URLSession.shared.dataTask(with: requestUrl) {
-//                data, response, error in
-//
-//                let decoder = JSONDecoder()
-//
-//                if let data = data {
-//                    do {
-//                        paymentMethods = try decoder.decode([PaymentMethod].self, from: data)
-//                    } catch {
-//                        print("Unable to decode payment methods information. \(error)")
-//                    }
-//                    print("HERE1")
-//                }
-//            }.resume()
         }
         return paymentMethods
     }
     
-    func requestBankIssuers(id: String) async -> [BankIssuer] {
+    func requestBankIssuers(paymentMethodId: String) async -> [BankIssuer] {
         var bankIssuers: [BankIssuer] = []
         
-        let baseUrl = "https://api.mercadopago.com/v1/payment_methods?"
+        let baseUrl = "https://api.mercadopago.com/v1/payment_methods"
         
-        if let requestUrl = URL(string: baseUrl + "public_key=" + apiKey) {
+        
+        if let requestUrl = URL(string: baseUrl + "/card_issuers?" + "public_key=" + apiKey + "&payment_method_id=" + paymentMethodId) {
             do {
             let (data, _) = try await URLSession.shared.data(from: requestUrl)
             
@@ -63,6 +49,31 @@ class ApiServices {
             }
         }
         return bankIssuers
+    }
+    
+    func requestPaymentInstallments(amount: Int, paymentMethodId: String, bankIssuerId: String) async -> [InstallmentsOption]? {
+        var installmentsOptions: InstallmentsOptions? = nil
+        
+        let baseUrl = "https://api.mercadopago.com/v1/payment_methods"
+        
+        
+        if let requestUrl = URL(string: baseUrl + "/installments?" + "public_key=" + apiKey
+                                + "&amount=\(amount)"
+                                + "&payment_method_id=" + paymentMethodId
+                                + "&issuer.id=" + bankIssuerId
+        ) {
+            do {
+                let (data, _) = try await URLSession.shared.data(from: requestUrl)
+                print(requestUrl)
+                let decodedData = try JSONDecoder().decode([InstallmentsOptions].self, from: data)
+                installmentsOptions = decodedData.first
+                print(installmentsOptions)
+                
+            } catch {
+                print("Error: \(error)")
+            }
+        }
+        return installmentsOptions?.payer_costs
     }
 
 

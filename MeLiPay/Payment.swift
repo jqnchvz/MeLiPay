@@ -12,5 +12,6 @@ class Payment: ObservableObject {
     @Published var amount: Int = 0
     @Published var paymentMethod: PaymentMethod?
     @Published var bankIssuer: BankIssuer?
+    @Published var installments: InstallmentsOption?
   
 }

@@ -30,7 +30,8 @@ struct ContentView: View {
                 HStack {
                     Spacer()
                     
-                    NavigationLink("Continuar", destination: SelectPaymentMethodView(payment: payment))
+                    NavigationLink("Continuar", destination: SelectPaymentMethodView())
+                        .isDetailLink(false)
                     .buttonStyle(.borderedProminent)
                     .disabled(payment.amount == 0)
                     .padding()
@@ -41,20 +42,11 @@ struct ContentView: View {
             }
             .navigationTitle("MeLiPay")
         }
+        .environmentObject(payment)
     }
 }
 
-extension Formatter {
-    static let lucNumberFormat: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencyCode = "CLP"
-        formatter.currencyGroupingSeparator = "."
-        formatter.minusSign = "👺 "  // Just for fun!
-        formatter.zeroSymbol = ""  // Show empty string instead of zero
-        return formatter
-    }()
-}
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

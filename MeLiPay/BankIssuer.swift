@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct BankIssuer: Codable, Hashable {
-    var id: String
-    var name: String
-    var thumbnail: String
+struct BankIssuer: Codable, Equatable {
+    let id: String
+    let name: String
+    let secure_thumbnail: String
+
 }

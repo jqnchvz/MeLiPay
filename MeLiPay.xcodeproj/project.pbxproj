@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		58115A5A285B7AEA007D1C3A /* SelectBankIssuerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */; };
+		58624DE4285CE3590007B686 /* SelectPaymentInstallmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */; };
+		58624DE6285CE8050007B686 /* InstallmentsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58624DE5285CE8050007B686 /* InstallmentsOptions.swift */; };
+		58C78BE8285E3D66001CDAA2 /* PaymentSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */; };
 		58E34EFA2858FC94009F0829 /* SelectPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */; };
 		58E34EFC28590422009F0829 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EFB28590422009F0829 /* Payment.swift */; };
 		58E34EFE285908B0009F0829 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EFD285908B0009F0829 /* PaymentMethod.swift */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBankIssuerView.swift; sourceTree = "<group>"; };
+		58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaymentInstallmentsView.swift; sourceTree = "<group>"; };
+		58624DE5285CE8050007B686 /* InstallmentsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentsOptions.swift; sourceTree = "<group>"; };
+		58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryView.swift; sourceTree = "<group>"; };
 		58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaymentMethodView.swift; sourceTree = "<group>"; };
 		58E34EFB28590422009F0829 /* Payment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		58E34EFD285908B0009F0829 /* PaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
@@ -69,10 +75,13 @@
 				58E80AB12858E96B00203D71 /* Preview Content */,
 				58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */,
 				58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */,
+				58E34F01285A52BC009F0829 /* ApiServices.swift */,
+				58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */,
 				58E34EFB28590422009F0829 /* Payment.swift */,
 				58E34EFD285908B0009F0829 /* PaymentMethod.swift */,
 				58E34EFF285908D6009F0829 /* BankIssuer.swift */,
-				58E34F01285A52BC009F0829 /* ApiServices.swift */,
+				58624DE5285CE8050007B686 /* InstallmentsOptions.swift */,
+				58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */,
 			);
 			path = MeLiPay;
 			sourceTree = "<group>";
@@ -158,8 +167,11 @@
 				58E80AAE2858E96700203D71 /* ContentView.swift in Sources */,
 				58E34F02285A52BC009F0829 /* ApiServices.swift in Sources */,
 				58E34EFA2858FC94009F0829 /* SelectPaymentMethodView.swift in Sources */,
+				58C78BE8285E3D66001CDAA2 /* PaymentSummaryView.swift in Sources */,
 				58E34F00285908D6009F0829 /* BankIssuer.swift in Sources */,
 				58E34EFC28590422009F0829 /* Payment.swift in Sources */,
+				58624DE4285CE3590007B686 /* SelectPaymentInstallmentsView.swift in Sources */,
+				58624DE6285CE8050007B686 /* InstallmentsOptions.swift in Sources */,
 				58E80AAC2858E96700203D71 /* MeLiPayApp.swift in Sources */,
 				58E34EFE285908B0009F0829 /* PaymentMethod.swift in Sources */,
 				58115A5A285B7AEA007D1C3A /* SelectBankIssuerView.swift in Sources */,

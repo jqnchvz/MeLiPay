@@ -29,26 +29,7 @@ struct SelectPaymentMethodView: View {
         
         VStack(alignment: .leading) {
             
-            Text("Resumen")
-                .font(.caption)
-                .foregroundColor(.secondary)
-            
-            HStack(alignment: .top){
-                Text("Monto:\n$\(payment.amount)")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding()
-                
-                Text("Tipo de Pago:\n\(payment.paymentMethod?.name ?? "N/A")")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding()
-                
-                Text("Emisor:\n\(payment.bankIssuer?.name ?? "N/A")")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding()
-            }
+            PaymentSummaryView(payment: payment)
             
             Text("Selecciona un método de pago")
                 .font(.headline)
@@ -107,9 +88,11 @@ struct SelectPaymentMethodView: View {
                             } else {
                                 self.payment.paymentMethod = paymentOption
                             }
+                            payment.bankIssuer = nil
                         }
                     }
                 }
+                .padding()
                 
                 
 //                Picker("Medio de Pago", selection: $selectedPaymentMethod) {
@@ -154,6 +137,7 @@ struct SelectPaymentMethodView: View {
         .task {
             await paymentMethods = apiServices.requestPaymentMethods()
         }
+        .navigationBarTitle(Text("Medio de Pago"))
     }
 }
 

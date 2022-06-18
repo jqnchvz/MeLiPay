@@ -18,31 +18,13 @@ struct SelectPaymentInstallmentsView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Resumen")
-                .font(.caption)
-                .foregroundColor(.secondary)
+            PaymentSummaryView(payment: payment)
             
-            HStack(alignment: .top){
-                Text("Monto:\n$\(payment.amount)")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding()
-                
-                Text("Tipo de Pago:\n\(payment.paymentMethod?.name ?? "N/A")")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding()
-                
-                Text("Emisor:\n\(payment.bankIssuer?.name ?? "N/A")")
-                    .font(.caption)
-                    .foregroundColor(.secondary)
-                    .padding()
-            }
-            
-            
-            VStack {
+            VStack(alignment: .leading) {
                 
                 Text("Selecciona la cantidad de cuotas: ")
+                    .padding()
+                
                 ScrollView {
                     
                     ForEach(installmentsOptions, id: \.self.installments) { installmentsOption in
@@ -68,6 +50,7 @@ struct SelectPaymentInstallmentsView: View {
                         }
                     }
                 }
+                .padding()
                 
                 HStack {
                     Spacer()
@@ -76,7 +59,7 @@ struct SelectPaymentInstallmentsView: View {
                     }
                     .isDetailLink(false)
                     .buttonStyle(.borderedProminent)
-                    .disabled(payment.bankIssuer == nil)
+                    .disabled(payment.installments?.installments == nil)
                     .padding()
                 }
                 

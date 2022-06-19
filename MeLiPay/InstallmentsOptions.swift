@@ -23,4 +23,18 @@ struct InstallmentsOption: Codable, Equatable {
     let installment_amount: Double
     let total_amount: Double
     let recommended_message: String
+    
+    var formattedInstallmentAmount: String {
+        let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+
+        return formatter.string(from: NSNumber(value: installment_amount)) ?? "$0"
+    }
+    
+    var formattedInstallmentTotalAmount: String {
+        let formatter = NumberFormatter()
+            formatter.numberStyle = .currency
+
+        return formatter.string(from: NSNumber(value: total_amount)) ?? "$0"
+    }
 }

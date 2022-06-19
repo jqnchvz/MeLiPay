@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    
-//    @State private var amount: Int = 0
+struct InputAmountView: View {
     
     @StateObject var payment = Payment()
     
@@ -21,16 +19,16 @@ struct ContentView: View {
                     .padding()
                 
                 TextField("", value: $payment.amount, format: .currency(code: "CLP"), prompt: Text(""))
-//                    .frame(maxWidth: 400, minHeight: 50, idealHeight: 100, alignment: .center)
                     .font(.system(size: 60, weight: .light, design: .rounded))
                     .textFieldStyle(.roundedBorder)
+                    .shadow(radius: 5)
                     .padding()
                     .keyboardType(.numberPad)
     
                 HStack {
                     Spacer()
                     
-                    NavigationLink("Continuar", destination: SelectPaymentMethodView())
+                    NavigationLink("Continuar", destination: SelectPaymentMethodView(), isActive: $payment.paymentInProcess)
                         .isDetailLink(false)
                     .buttonStyle(.borderedProminent)
                     .disabled(payment.amount == 0)
@@ -41,15 +39,31 @@ struct ContentView: View {
                 
             }
             .navigationTitle("MeLiPay")
+            .background(
+                LinearGradient(gradient: Gradient(colors: [.teal, .white , .white, .white]), startPoint: .top, endPoint: .bottom)
+                )
+            
         }
+        .sheet(isPresented: $payment.paymentComplete,onDismiss: { payment.resetPayment() }, content: {
+            VStack(alignment: .leading, spacing: 30) {
+                Text("Pago Realizado")
+                    .font(.largeTitle)
+                PaymentSummaryView(payment: payment, summaryStyle: .regular)
+                Button("Comenzar nuevo pago") {
+                payment.resetPayment()
+            }
+            .buttonStyle(.borderedProminent)
+            }
+        })
         .environmentObject(payment)
     }
+    
 }
 
 
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        InputAmountView()
     }
 }

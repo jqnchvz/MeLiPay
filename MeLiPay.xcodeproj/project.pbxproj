@@ -17,7 +17,7 @@
 		58E34F00285908D6009F0829 /* BankIssuer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EFF285908D6009F0829 /* BankIssuer.swift */; };
 		58E34F02285A52BC009F0829 /* ApiServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34F01285A52BC009F0829 /* ApiServices.swift */; };
 		58E80AAC2858E96700203D71 /* MeLiPayApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E80AAB2858E96700203D71 /* MeLiPayApp.swift */; };
-		58E80AAE2858E96700203D71 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E80AAD2858E96700203D71 /* ContentView.swift */; };
+		58E80AAE2858E96700203D71 /* InputAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E80AAD2858E96700203D71 /* InputAmountView.swift */; };
 		58E80AB02858E96B00203D71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E80AAF2858E96B00203D71 /* Assets.xcassets */; };
 		58E80AB32858E96B00203D71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E80AB22858E96B00203D71 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -34,7 +34,7 @@
 		58E34F01285A52BC009F0829 /* ApiServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServices.swift; sourceTree = "<group>"; };
 		58E80AA82858E96700203D71 /* MeLiPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeLiPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		58E80AAB2858E96700203D71 /* MeLiPayApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeLiPayApp.swift; sourceTree = "<group>"; };
-		58E80AAD2858E96700203D71 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		58E80AAD2858E96700203D71 /* InputAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountView.swift; sourceTree = "<group>"; };
 		58E80AAF2858E96B00203D71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58E80AB22858E96B00203D71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				58E80AAB2858E96700203D71 /* MeLiPayApp.swift */,
-				58E80AAD2858E96700203D71 /* ContentView.swift */,
+				58E80AAD2858E96700203D71 /* InputAmountView.swift */,
 				58E80AAF2858E96B00203D71 /* Assets.xcassets */,
 				58E80AB12858E96B00203D71 /* Preview Content */,
 				58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */,
@@ -164,7 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				58E80AAE2858E96700203D71 /* ContentView.swift in Sources */,
+				58E80AAE2858E96700203D71 /* InputAmountView.swift in Sources */,
 				58E34F02285A52BC009F0829 /* ApiServices.swift in Sources */,
 				58E34EFA2858FC94009F0829 /* SelectPaymentMethodView.swift in Sources */,
 				58C78BE8285E3D66001CDAA2 /* PaymentSummaryView.swift in Sources */,

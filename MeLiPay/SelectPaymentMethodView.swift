@@ -17,9 +17,7 @@ enum PaymentType: String, Equatable, CaseIterable {
 struct SelectPaymentMethodView: View {
     
     @State private var paymentMethods: [PaymentMethod] = []
-//    @ObservedObject var payment: Payment
     @State private var selectedPaymentType: PaymentType = .credit
-//    @State private var selectedPaymentMethod = PaymentMethod()
     
     @EnvironmentObject var payment: Payment
     
@@ -29,7 +27,8 @@ struct SelectPaymentMethodView: View {
         
         VStack(alignment: .leading) {
             
-            PaymentSummaryView(payment: payment)
+            PaymentSummaryView(payment: payment, summaryStyle: .minimal)
+                .frame(height: 60, alignment: .topLeading)
             
             Text("Selecciona un método de pago")
                 .font(.headline)
@@ -50,6 +49,7 @@ struct SelectPaymentMethodView: View {
                     }
                 }
                 .pickerStyle(.segmented)
+                .padding([.leading, .trailing])
                 
                 let paymentOptions = paymentMethods.filter {
                     $0.payment_type_id == selectedPaymentType.rawValue && payment.amount <= $0.max_allowed_amount
@@ -58,63 +58,45 @@ struct SelectPaymentMethodView: View {
                 ScrollView {
                     
                     ForEach(paymentOptions, id: \.self.id) { paymentOption in
-                        
-                        HStack {
-                            if let thumbnailUrl = URL(string: paymentOption.secure_thumbnail) {
-                                AsyncImage(url: thumbnailUrl) { image in
-                                    image
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .frame(width: 50)
-                                } placeholder: {
-                                    Color.gray
-                                        .frame(width: 50, height: 20)
-                                }
-                            }
-                            Text(paymentOption.name)
-                            Spacer()
-                            
-                            if payment.paymentMethod == paymentOption {
-                                Image(systemName: "checkmark")
-                                    .foregroundColor(Color.white)
-                                    .padding()
-                            }
-                        }
-                        .frame(height: 50)
-                        .background(payment.paymentMethod == paymentOption ? Color.green : .clear)
-                        .onTapGesture {
+                        Button {
                             if self.payment.paymentMethod == paymentOption {
                                 self.payment.paymentMethod = nil
                             } else {
                                 self.payment.paymentMethod = paymentOption
                             }
                             payment.bankIssuer = nil
+                        } label: {
+                            HStack {
+                                if let thumbnailUrl = URL(string: paymentOption.secure_thumbnail) {
+                                    AsyncImage(url: thumbnailUrl) { image in
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 50)
+                                    } placeholder: {
+                                        Color.gray
+                                            .frame(width: 50, height: 20)
+                                    }
+                                }
+                                Text(paymentOption.name)
+                                Spacer()
+                                
+                                if payment.paymentMethod == paymentOption {
+                                    Image(systemName: "checkmark")
+                                        .foregroundColor(Color.white)
+                                        .padding()
+                                }
+                            }
+                            .frame(height: 50)
+                            .padding([.leading, .trailing])
+                            .background(payment.paymentMethod == paymentOption ? Color.green : .clear)
                         }
                     }
                 }
+                .background(Color.white)
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .shadow(radius: 5)
                 .padding()
-                
-                
-//                Picker("Medio de Pago", selection: $selectedPaymentMethod) {
-//                    Text("-")
-//                        .tag(nil as PaymentMethod?)
-//                    ForEach(paymentOptions, id: \.self) {
-//                        paymentOption in
-//                        HStack {
-//                            if let thumbnailUrl = URL(string: paymentOption.thumbnail) {
-//                                AsyncImage(url: thumbnailUrl)
-//                            }
-//
-//                            Text(paymentOption.name)
-//                            Spacer()
-//                        }
-//
-//                    }
-//                }
-//                .pickerStyle(.wheel)
-//                .onChange(of: selectedPaymentMethod) { newValue in
-//                    payment.paymentMethod = newValue
-//                }
                 
                 HStack {
                     Spacer()
@@ -137,6 +119,9 @@ struct SelectPaymentMethodView: View {
         .task {
             await paymentMethods = apiServices.requestPaymentMethods()
         }
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.teal, .white, .white]), startPoint: .top, endPoint: .bottom)
+            )
         .navigationBarTitle(Text("Medio de Pago"))
     }
 }

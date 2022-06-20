@@ -18,8 +18,11 @@ struct InputAmountView: View {
     // Manejo de errores
     @StateObject var errorHandler = ErrorHandler()
     
-    // Variable para mostrar alerta con información.
+    // Variable para mostrar alerta con información personal.
     @State private var isShowingAboutMe = false
+    
+    // Variable para mostrar prompt de ingreso de llave pública de API.
+    @State private var isShowingApiKeyPrompt = false
     
     var body: some View {
         NavigationView {
@@ -38,18 +41,33 @@ struct InputAmountView: View {
                     NavigationLink("Continuar", destination: SelectPaymentMethodView(), isActive: $payment.paymentInProcess) // variable isActive permite hacer Pop-to-Root alfinal del proceso de pago.
                         .isDetailLink(false)
                     .buttonStyle(.borderedProminent)
-                    .disabled(payment.amount == 0)
+                    .disabled(payment.amount == 0 || apiServices.isApiKeyEmpty)
                     .padding()
                 }
                 
+                // Mensaje de error si no se ha ingresado la llave pública para acceder a la API de MercadoLibre.
+                if apiServices.isApiKeyEmpty {
+                    Text("Ingresa tu API Key para poder continuar.")
+                        .font(.title3)
+                        .foregroundColor(.red)
+                        
+                }
+                
                 Spacer()
+                
+                
                 
             }
             .navigationTitle("MeLiPay")
             // Botón que lanza alerta con info personal.
             .toolbar(content: {
-                Button("Info") {
-                    isShowingAboutMe = true
+                ToolbarItemGroup(placement: .navigationBarTrailing) {
+                        Button("Editar API Key") {
+                            isShowingApiKeyPrompt = true
+                        }
+                        Button("Info") {
+                            isShowingAboutMe = true
+                        }
                 }
             })
             .background(
@@ -58,12 +76,25 @@ struct InputAmountView: View {
             
         }
         .onAppear {
+            apiServices.loadApiKey() // Cargar APIKey guardada en Userdefaults.
             payment.resetPayment() // Resetear datos de pago cada vez que se carga esta vista inicial nuevamente.
+            if apiServices.isApiKeyEmpty { // Si la API Key no se ha ingresado, mostrar prompt para ingresarla.
+                isShowingApiKeyPrompt = true
+            }
+            
         }
         // Alerta con info personal.
         .alert("Info", isPresented: $isShowingAboutMe, actions: {}, message: {
                 Text("Proyecto realizado por\nJoaquín Chávez B.\n Junio 2022")
 
+        })
+        // Sheet con solicitud de ingreso de llave pública para API de MercadoLibre.
+        .sheet(isPresented: $isShowingApiKeyPrompt,
+               onDismiss: {
+                },
+               content: {
+                // Vista personalizada con formulario de ingreso de API Key.
+                ApiKeyPromptView(apiServices: apiServices)
         })
         .environmentObject(payment)
         .environmentObject(apiServices)

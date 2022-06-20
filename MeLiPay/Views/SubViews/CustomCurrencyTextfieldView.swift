@@ -16,7 +16,7 @@ struct CustomCurrencyTextFieldView: View {
     @ObservedObject var payment: Payment
     
     // Variables para operación de CurrencyTextField
-    @State private var hasFocus: Bool? = true
+    @State private var hasFocus: Bool? = false
     @State private var shouldClearTextField = true
     @State private var currency: Currency = .chileanPeso
     @State private var inputText: String = ""
@@ -28,7 +28,6 @@ struct CustomCurrencyTextFieldView: View {
             .shadow(radius: 5)
             .padding()
             .onAppear {
-                hasFocus = true
                 inputText = ""
             }
     }

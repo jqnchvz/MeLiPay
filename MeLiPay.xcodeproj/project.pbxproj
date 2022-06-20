@@ -29,6 +29,7 @@
 		58FD4C0A2860D2BB00FFC68E /* FinalSummarySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C092860D2BB00FFC68E /* FinalSummarySheetView.swift */; };
 		58FD4C0C2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C0B2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift */; };
 		58FD4C102860F43900FFC68E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 58FD4C0F2860F43900FFC68E /* README.md */; };
+		58FD4C122861030900FFC68E /* ApiKeyPromptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C112861030900FFC68E /* ApiKeyPromptView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,8 @@
 		58FD4C092860D2BB00FFC68E /* FinalSummarySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSummarySheetView.swift; sourceTree = "<group>"; };
 		58FD4C0B2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurrencyTextfieldView.swift; sourceTree = "<group>"; };
 		58FD4C0F2860F43900FFC68E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		58FD4C112861030900FFC68E /* ApiKeyPromptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeyPromptView.swift; sourceTree = "<group>"; };
+		58FD4C1328610AE000FFC68E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 				58FD4C032860BE6400FFC68E /* ListItemWithThumbnail.swift */,
 				58FD4C092860D2BB00FFC68E /* FinalSummarySheetView.swift */,
 				58FD4C0B2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift */,
+				58FD4C112861030900FFC68E /* ApiKeyPromptView.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -139,6 +143,7 @@
 		58E80AAA2858E96700203D71 /* MeLiPay */ = {
 			isa = PBXGroup;
 			children = (
+				58FD4C1328610AE000FFC68E /* Info.plist */,
 				5855B5D3285FF7EB008B7BEA /* ViewModel */,
 				5855B5D2285FF7DC008B7BEA /* Services */,
 				5855B5D0285FF764008B7BEA /* Views */,
@@ -241,6 +246,7 @@
 				58365B4A285FC4D300C106BD /* CustomSelectionListView.swift in Sources */,
 				58E34F02285A52BC009F0829 /* ApiServices.swift in Sources */,
 				58E34EFA2858FC94009F0829 /* SelectPaymentMethodView.swift in Sources */,
+				58FD4C122861030900FFC68E /* ApiKeyPromptView.swift in Sources */,
 				58C78BE8285E3D66001CDAA2 /* PaymentSummaryView.swift in Sources */,
 				58FD4C042860BE6400FFC68E /* ListItemWithThumbnail.swift in Sources */,
 				58FD4C0C2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift in Sources */,
@@ -384,6 +390,7 @@
 				DEVELOPMENT_TEAM = 972ZHL4629;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeLiPay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -414,6 +421,7 @@
 				DEVELOPMENT_TEAM = 972ZHL4629;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MeLiPay/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

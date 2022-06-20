@@ -1,7 +1,7 @@
-#MeLiPay
+# MeLiPay
 por Joaquín Chávez.
 
-##Applicación basada en SwiftUI para iOS que muestra un flujo de pago utilizando la API pública de MercadoLibre.
+### Applicación basada en SwiftUI para iOS que muestra un flujo de pago utilizando la API pública de MercadoLibre.
 
 La aplicación cuenta con 4 vistas manejadas en su flujo a través de un NavigationView.
 
@@ -14,3 +14,7 @@ Al terminar el proceso se muestra un Sheet con resumen de pago completado y al d
 
 Librerías externas utilizadas: 
 1. CurrencyText 3.0.0 (https://github.com/marinofelipe/CurrencyText) por Felipe Marino.
+
+### Demo
+
+![](https://github.com/jqnchvz/MeLiPay/blob/master/MeLiPay.gif)

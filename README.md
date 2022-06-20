@@ -17,4 +17,4 @@ Librerías externas utilizadas:
 
 ### Demo
 
-![](https://github.com/jqnchvz/MeLiPay/blob/master/MeLiPay.gif)
+![](https://github.com/jqnchvz/MeLiPay/blob/master/DemoMeLiPay.gif)

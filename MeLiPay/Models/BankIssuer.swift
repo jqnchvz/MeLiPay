@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct BankIssuer: Codable, Equatable {
+// Modelo para bancos emisores según datos obtenidos desde API de MercadoLibre.
+struct BankIssuer: Codable, Equatable, PaymentData {
     let id: String
     let name: String
     let secure_thumbnail: String

@@ -8,9 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		58115A5A285B7AEA007D1C3A /* SelectBankIssuerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */; };
+		58365B4A285FC4D300C106BD /* CustomSelectionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58365B49285FC4D300C106BD /* CustomSelectionListView.swift */; };
 		58624DE4285CE3590007B686 /* SelectPaymentInstallmentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */; };
 		58624DE6285CE8050007B686 /* InstallmentsOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58624DE5285CE8050007B686 /* InstallmentsOptions.swift */; };
 		58C78BE8285E3D66001CDAA2 /* PaymentSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */; };
+		58CB986D285F92050094B730 /* CurrencyFormatter in Frameworks */ = {isa = PBXBuildFile; productRef = 58CB986C285F92050094B730 /* CurrencyFormatter */; };
+		58CB986F285F92050094B730 /* CurrencyText in Frameworks */ = {isa = PBXBuildFile; productRef = 58CB986E285F92050094B730 /* CurrencyText */; };
+		58CB9871285F92050094B730 /* CurrencyTextSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 58CB9870285F92050094B730 /* CurrencyTextSwiftUI */; };
 		58E34EFA2858FC94009F0829 /* SelectPaymentMethodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */; };
 		58E34EFC28590422009F0829 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EFB28590422009F0829 /* Payment.swift */; };
 		58E34EFE285908B0009F0829 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E34EFD285908B0009F0829 /* PaymentMethod.swift */; };
@@ -20,10 +24,16 @@
 		58E80AAE2858E96700203D71 /* InputAmountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E80AAD2858E96700203D71 /* InputAmountView.swift */; };
 		58E80AB02858E96B00203D71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E80AAF2858E96B00203D71 /* Assets.xcassets */; };
 		58E80AB32858E96B00203D71 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 58E80AB22858E96B00203D71 /* Preview Assets.xcassets */; };
+		58FD4C042860BE6400FFC68E /* ListItemWithThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C032860BE6400FFC68E /* ListItemWithThumbnail.swift */; };
+		58FD4C082860C1AD00FFC68E /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C072860C1AD00FFC68E /* ErrorHandler.swift */; };
+		58FD4C0A2860D2BB00FFC68E /* FinalSummarySheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C092860D2BB00FFC68E /* FinalSummarySheetView.swift */; };
+		58FD4C0C2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FD4C0B2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift */; };
+		58FD4C102860F43900FFC68E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 58FD4C0F2860F43900FFC68E /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBankIssuerView.swift; sourceTree = "<group>"; };
+		58365B49285FC4D300C106BD /* CustomSelectionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSelectionListView.swift; sourceTree = "<group>"; };
 		58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPaymentInstallmentsView.swift; sourceTree = "<group>"; };
 		58624DE5285CE8050007B686 /* InstallmentsOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallmentsOptions.swift; sourceTree = "<group>"; };
 		58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentSummaryView.swift; sourceTree = "<group>"; };
@@ -37,6 +47,11 @@
 		58E80AAD2858E96700203D71 /* InputAmountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputAmountView.swift; sourceTree = "<group>"; };
 		58E80AAF2858E96B00203D71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		58E80AB22858E96B00203D71 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		58FD4C032860BE6400FFC68E /* ListItemWithThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemWithThumbnail.swift; sourceTree = "<group>"; };
+		58FD4C072860C1AD00FFC68E /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
+		58FD4C092860D2BB00FFC68E /* FinalSummarySheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalSummarySheetView.swift; sourceTree = "<group>"; };
+		58FD4C0B2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCurrencyTextfieldView.swift; sourceTree = "<group>"; };
+		58FD4C0F2860F43900FFC68E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,15 +59,70 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58CB986F285F92050094B730 /* CurrencyText in Frameworks */,
+				58CB986D285F92050094B730 /* CurrencyFormatter in Frameworks */,
+				58CB9871285F92050094B730 /* CurrencyTextSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5855B5CF285FF749008B7BEA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				58E34EFD285908B0009F0829 /* PaymentMethod.swift */,
+				58E34EFF285908D6009F0829 /* BankIssuer.swift */,
+				58624DE5285CE8050007B686 /* InstallmentsOptions.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5855B5D0285FF764008B7BEA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				58E80AAD2858E96700203D71 /* InputAmountView.swift */,
+				58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */,
+				58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */,
+				58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */,
+				5855B5D1285FF7C0008B7BEA /* SubViews */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5855B5D1285FF7C0008B7BEA /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				58365B49285FC4D300C106BD /* CustomSelectionListView.swift */,
+				58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */,
+				58FD4C032860BE6400FFC68E /* ListItemWithThumbnail.swift */,
+				58FD4C092860D2BB00FFC68E /* FinalSummarySheetView.swift */,
+				58FD4C0B2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
+		5855B5D2285FF7DC008B7BEA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				58E34F01285A52BC009F0829 /* ApiServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5855B5D3285FF7EB008B7BEA /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				58E34EFB28590422009F0829 /* Payment.swift */,
+				58FD4C072860C1AD00FFC68E /* ErrorHandler.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		58E80A9F2858E96700203D71 = {
 			isa = PBXGroup;
 			children = (
+				58FD4C0F2860F43900FFC68E /* README.md */,
 				58E80AAA2858E96700203D71 /* MeLiPay */,
 				58E80AA92858E96700203D71 /* Products */,
 			);
@@ -69,19 +139,13 @@
 		58E80AAA2858E96700203D71 /* MeLiPay */ = {
 			isa = PBXGroup;
 			children = (
+				5855B5D3285FF7EB008B7BEA /* ViewModel */,
+				5855B5D2285FF7DC008B7BEA /* Services */,
+				5855B5D0285FF764008B7BEA /* Views */,
+				5855B5CF285FF749008B7BEA /* Models */,
 				58E80AAB2858E96700203D71 /* MeLiPayApp.swift */,
-				58E80AAD2858E96700203D71 /* InputAmountView.swift */,
 				58E80AAF2858E96B00203D71 /* Assets.xcassets */,
 				58E80AB12858E96B00203D71 /* Preview Content */,
-				58E34EF92858FC94009F0829 /* SelectPaymentMethodView.swift */,
-				58115A59285B7AEA007D1C3A /* SelectBankIssuerView.swift */,
-				58E34F01285A52BC009F0829 /* ApiServices.swift */,
-				58624DE3285CE3590007B686 /* SelectPaymentInstallmentsView.swift */,
-				58E34EFB28590422009F0829 /* Payment.swift */,
-				58E34EFD285908B0009F0829 /* PaymentMethod.swift */,
-				58E34EFF285908D6009F0829 /* BankIssuer.swift */,
-				58624DE5285CE8050007B686 /* InstallmentsOptions.swift */,
-				58C78BE7285E3D66001CDAA2 /* PaymentSummaryView.swift */,
 			);
 			path = MeLiPay;
 			sourceTree = "<group>";
@@ -110,6 +174,11 @@
 			dependencies = (
 			);
 			name = MeLiPay;
+			packageProductDependencies = (
+				58CB986C285F92050094B730 /* CurrencyFormatter */,
+				58CB986E285F92050094B730 /* CurrencyText */,
+				58CB9870285F92050094B730 /* CurrencyTextSwiftUI */,
+			);
 			productName = MeLiPay;
 			productReference = 58E80AA82858E96700203D71 /* MeLiPay.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +207,9 @@
 				Base,
 			);
 			mainGroup = 58E80A9F2858E96700203D71;
+			packageReferences = (
+				58CB986B285F92050094B730 /* XCRemoteSwiftPackageReference "CurrencyText" */,
+			);
 			productRefGroup = 58E80AA92858E96700203D71 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -152,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58FD4C102860F43900FFC68E /* README.md in Resources */,
 				58E80AB32858E96B00203D71 /* Preview Assets.xcassets in Resources */,
 				58E80AB02858E96B00203D71 /* Assets.xcassets in Resources */,
 			);
@@ -165,15 +238,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				58E80AAE2858E96700203D71 /* InputAmountView.swift in Sources */,
+				58365B4A285FC4D300C106BD /* CustomSelectionListView.swift in Sources */,
 				58E34F02285A52BC009F0829 /* ApiServices.swift in Sources */,
 				58E34EFA2858FC94009F0829 /* SelectPaymentMethodView.swift in Sources */,
 				58C78BE8285E3D66001CDAA2 /* PaymentSummaryView.swift in Sources */,
+				58FD4C042860BE6400FFC68E /* ListItemWithThumbnail.swift in Sources */,
+				58FD4C0C2860D3D700FFC68E /* CustomCurrencyTextfieldView.swift in Sources */,
 				58E34F00285908D6009F0829 /* BankIssuer.swift in Sources */,
 				58E34EFC28590422009F0829 /* Payment.swift in Sources */,
 				58624DE4285CE3590007B686 /* SelectPaymentInstallmentsView.swift in Sources */,
 				58624DE6285CE8050007B686 /* InstallmentsOptions.swift in Sources */,
 				58E80AAC2858E96700203D71 /* MeLiPayApp.swift in Sources */,
+				58FD4C0A2860D2BB00FFC68E /* FinalSummarySheetView.swift in Sources */,
 				58E34EFE285908B0009F0829 /* PaymentMethod.swift in Sources */,
+				58FD4C082860C1AD00FFC68E /* ErrorHandler.swift in Sources */,
 				58115A5A285B7AEA007D1C3A /* SelectBankIssuerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -377,6 +455,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		58CB986B285F92050094B730 /* XCRemoteSwiftPackageReference "CurrencyText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/marinofelipe/CurrencyText.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		58CB986C285F92050094B730 /* CurrencyFormatter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58CB986B285F92050094B730 /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyFormatter;
+		};
+		58CB986E285F92050094B730 /* CurrencyText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58CB986B285F92050094B730 /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyText;
+		};
+		58CB9870285F92050094B730 /* CurrencyTextSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 58CB986B285F92050094B730 /* XCRemoteSwiftPackageReference "CurrencyText" */;
+			productName = CurrencyTextSwiftUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 58E80AA02858E96700203D71 /* Project object */;
 }

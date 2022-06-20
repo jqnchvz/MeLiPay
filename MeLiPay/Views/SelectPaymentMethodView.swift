@@ -14,20 +14,22 @@ enum PaymentType: String, Equatable, CaseIterable {
     
 }
 
+// Pantalla de selección de Medio de Pago.
+
 struct SelectPaymentMethodView: View {
     
     @State private var paymentMethods: [PaymentMethod] = []
     @State private var selectedPaymentType: PaymentType = .credit
-    
+
     @EnvironmentObject var payment: Payment
-    
-    let apiServices = ApiServices()
+    @EnvironmentObject var apiServices: ApiServices
+    @EnvironmentObject var errorHandler: ErrorHandler
     
     var body: some View {
         
         VStack(alignment: .leading) {
-            
-            PaymentSummaryView(payment: payment, summaryStyle: .minimal)
+            // Vista con resumen de datos de pago.
+            PaymentSummaryView(payment: payment, summaryStyle: .minimal) // Vista resumen de pago reutilizable.
                 .frame(height: 60, alignment: .topLeading)
             
             Text("Selecciona un método de pago")
@@ -35,7 +37,7 @@ struct SelectPaymentMethodView: View {
                 .padding()
             
             VStack {
-                
+                // Selector para filtrar lista de opciones según por tipo de pago.
                 Picker("Tipo de pago", selection: $selectedPaymentType) {
                     ForEach(PaymentType.allCases, id: \.self) { paymentType in
                             switch paymentType {
@@ -51,53 +53,32 @@ struct SelectPaymentMethodView: View {
                 .pickerStyle(.segmented)
                 .padding([.leading, .trailing])
                 
+                // Lista de opciones filradas según selección anterior.
                 let paymentOptions = paymentMethods.filter {
                     $0.payment_type_id == selectedPaymentType.rawValue && payment.amount <= $0.max_allowed_amount
                 }
                 
-                ScrollView {
-                    
-                    ForEach(paymentOptions, id: \.self.id) { paymentOption in
-                        Button {
-                            if self.payment.paymentMethod == paymentOption {
-                                self.payment.paymentMethod = nil
-                            } else {
-                                self.payment.paymentMethod = paymentOption
-                            }
-                            payment.bankIssuer = nil
-                        } label: {
-                            HStack {
-                                if let thumbnailUrl = URL(string: paymentOption.secure_thumbnail) {
-                                    AsyncImage(url: thumbnailUrl) { image in
-                                        image
-                                            .resizable()
-                                            .aspectRatio(contentMode: .fit)
-                                            .frame(width: 50)
-                                    } placeholder: {
-                                        Color.gray
-                                            .frame(width: 50, height: 20)
-                                    }
-                                }
-                                Text(paymentOption.name)
-                                Spacer()
-                                
-                                if payment.paymentMethod == paymentOption {
-                                    Image(systemName: "checkmark")
-                                        .foregroundColor(Color.white)
-                                        .padding()
-                                }
-                            }
-                            .frame(height: 50)
-                            .padding([.leading, .trailing])
-                            .background(payment.paymentMethod == paymentOption ? Color.green : .clear)
-                        }
+                // Si la lista filtrada está vacía mostrar mensaje.
+                if paymentOptions.isEmpty {
+                    VStack{
+                        Text("No hay opciones de pago disponibles.")
+                            .font(.headline)
+                            .foregroundColor(.black)
+                        Text("Intenta con un monto menor.")
+                            .foregroundColor(.black)
+                            .font(.headline)
                     }
+                    .padding()
                 }
-                .background(Color.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
-                .shadow(radius: 5)
-                .padding()
                 
+                // Vista personalizada reutilizable con lista de opciones a mostrar.
+                CustomSelectionListView(items: paymentOptions, selection: $payment.paymentMethod) { paymentOption in
+                    
+                    // Vista personalizada reutilizable para estilizar cada opción a mostrar.
+                    ListItemWithThumbnail(text: paymentOption.name, thumbnailUrlString: paymentOption.secure_thumbnail)
+                }
+                
+                // Botón para seguir proceso de pago.
                 HStack {
                     Spacer()
                     NavigationLink("Continuar") {
@@ -117,12 +98,17 @@ struct SelectPaymentMethodView: View {
             
         }
         .task {
-            await paymentMethods = apiServices.requestPaymentMethods()
+            // Al cargar la vista actual se solicita la información de metodos de pago de manera asíncrona.
+            paymentMethods = await apiServices.requestPaymentMethods(errorHandler: errorHandler)
         }
         .background(
             LinearGradient(gradient: Gradient(colors: [.teal, .white, .white]), startPoint: .top, endPoint: .bottom)
             )
         .navigationBarTitle(Text("Medio de Pago"))
+        // Alerta en caso de error al solicitar los datos desde la API.
+        .alert(errorHandler.errorTitle, isPresented: $errorHandler.isShowingErrorAlert, actions: {}) {
+            Text(errorHandler.errorMessage)
+        }
     }
 }
 

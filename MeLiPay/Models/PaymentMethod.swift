@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct PaymentMethod: Codable, Equatable {
+// Modelo para método de pago según datos obtenidos desde API de MercadoLibre.
+struct PaymentMethod: Codable, Equatable, PaymentData {
     let id: String
     let name: String
     let payment_type_id: String

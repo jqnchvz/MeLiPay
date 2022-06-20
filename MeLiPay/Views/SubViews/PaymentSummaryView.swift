@@ -7,49 +7,52 @@
 
 import SwiftUI
 
+// Estilos de resumen disponibles.
 enum SummaryStyle {
     case minimal, regular
 }
 
+// Vista personalizada multiuso para generar resumen con datos de pago.
+
 struct PaymentSummaryView: View {
     @ObservedObject var payment: Payment
+    // Variable que setea estilo deseado.
     var summaryStyle: SummaryStyle = .minimal
-    var summaryStyleToggle: Bool {
-        summaryStyle == .minimal
-    }
     
     var body: some View {
-        
+        // Dos opciones de vista a mostrar según valor de summaryStyle
         if summaryStyle == .minimal {
+            // Vista en formato horizontal para resumen durante proceso de pago.
             VStack(alignment: .leading, spacing: 10) {
                 Text("Resumen")
-                    .font(summaryStyleToggle ? .caption2 : .largeTitle)
-                    .foregroundColor(.secondary)
+                    .font(.caption2)
+//                    .foregroundColor(.secondary)
                     .padding(.leading)
                 
                 HStack(alignment: .top){
-                    Text("Monto:\n$\(payment.formattedAmount)")
-                        .font(summaryStyleToggle ? .caption2 : .headline)
-                        .foregroundColor(summaryStyleToggle ? .secondary : .primary)
+                    Text("Monto:\n\(payment.formattedAmount)")
+                        .font(.caption2)
+//                        .foregroundColor(.secondary)
                         .padding([.leading, .trailing])
                     
                     Text("Medio:\n\(payment.paymentMethod?.name ?? "N/A")")
-                        .font(summaryStyleToggle ? .caption2 : .headline)
-                        .foregroundColor(summaryStyleToggle ? .secondary : .primary)
+                        .font(.caption2)
+//                        .foregroundColor(.secondary)
                         .padding([.leading, .trailing])
                     
                     Text("Emisor:\n\(payment.bankIssuer?.name ?? "N/A")")
-                        .font(summaryStyleToggle ? .caption2 : .headline)
-                        .foregroundColor(summaryStyleToggle ? .secondary : .primary)
+                        .font(.caption2)
+//                        .foregroundColor(.secondary)
                         .padding([.leading, .trailing])
                     
                     Text("Nº Cuotas:\n\(payment.installments?.installments ?? 0)")
-                        .font(summaryStyleToggle ? .caption2 : .headline)
-                        .foregroundColor(summaryStyleToggle ? .secondary : .primary)
+                        .font(.caption2)
+//                        .foregroundColor(.secondary)
                         .padding([.leading, .trailing])
                 }
             }
         } else {
+            // Vista de distribución vertical. Para uso en resumen final.
             VStack(alignment: .leading, spacing: 30){
                 Text("Resumen")
                     .font(.title)

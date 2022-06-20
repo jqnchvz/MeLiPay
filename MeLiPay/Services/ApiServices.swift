@@ -11,9 +11,10 @@ class ApiServices: ObservableObject {
     
     // Servicios de acceso a datos a través de API pública de MercadoLibre.
     
-    // Datos fijos.
-    let apiKey = "444a9ef5-8a6b-429f-abdf-587639155d88"
-    let baseUrl = "https://api.mercadopago.com/v1/payment_methods"
+    // Datos fijos. Reemplazar API Key personal para acceder a datos de MercadoLibre.
+    private var apiKey = "API-KEY-GOES-HERE"
+    
+    private let baseUrl = "https://api.mercadopago.com/v1/payment_methods"
     
     // Solicitud de datos de métodos de pago disponibles.
     func requestPaymentMethods(errorHandler: ErrorHandler) async -> [PaymentMethod] {
@@ -71,6 +72,10 @@ class ApiServices: ObservableObject {
             errorHandler.showErrorAlertWith(title: "Error", message: error.localizedDescription)
         }
         return items
+    }
+    
+    func setApiKey(_ apiKey: String) {
+        self.apiKey = apiKey
     }
 
 

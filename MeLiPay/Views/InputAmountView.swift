@@ -24,6 +24,7 @@ struct InputAmountView: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .leading, spacing: 20) {
+                
                 Text("Ingresa un monto a pagar")
                     .font(.headline)
                     .padding()
